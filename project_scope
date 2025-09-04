@@ -1,0 +1,87 @@
+Tech stack for the project:
+Frontend - HTML, CSS, JavaScript
+Backend - Python, Flask, SQL
+
+
+Book appointment for hair, nails and lashes:
+- Services offered for each and prices
+Put given hair, nails lashes options:
+- Time for the appointment
+- The price needed to be paid for the selected services
+- Select different styles and whatnot
+
+Hair prices :
+- Braids without fibre: 
+Short: R250
+Medium: R300
+Long: R400
+Past waist: R500
+
+- Braids with fibre
+Short: R350
+Medium: R450
+Long: R550
+Past waist: R700
+
+Nails:
+Short gel nails: R170
+Medium sized gel nails: R200
+
+Acrylic nails:
+short: R200
+medium:R300
+long: R400
+
+lashes:
+s
+
+Colour scheme for this project
+
+### 1. **Classic Luxe**
+
+* **Deep Emerald Green**
+* **Rich Gold**
+* **Creamy White**
+
+*Vibe:* Elegant, timeless, and sophisticated with a touch of nature.
+
+---
+
+### 2. **Modern Glam**
+
+* **Blush Pink**
+* **Rose Gold**
+* **Matte Black**
+
+*Vibe:* Trendy, chic, and ultra-modern with a soft feminine edge.
+
+---
+
+### 3. **Soft Neutrals**
+
+* **Warm Taupe**
+* **Champagne Beige**
+* **Soft White**
+
+*Vibe:* Calm, inviting, and luxurious with understated elegance.
+
+---
+
+### 4. **Bold & Luxe**
+
+* **Navy Blue**
+* **Metallic Gold**
+* **Pure White**
+
+*Vibe:* Strong, confident, and upscale with a classic contrast.
+
+---
+
+### 5. **Rich Jewel Tones**
+
+* **Deep Plum**
+* **Antique Gold**
+* **Ivory**
+
+*Vibe:* Regal, mysterious, and rich with an artistic flair.
+
