@@ -45,11 +45,19 @@ body {
     
 }
 
+
 .section-2 h3 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));   
+}
+
 
 .braids {
     width: 300px;
@@ -67,7 +75,7 @@ body {
     border-radius: 30px;
     background: #dbc39c;
     box-shadow:  15px 15px 30px #bebebe,
-                -15px -15px 30px #ffffff;
+                -15px -15px 30px #bebebe;
 }
 
 
@@ -77,7 +85,7 @@ body {
     border-radius: 30px;
     background: #dbc39c;
     box-shadow:  15px 15px 30px #bebebe,
-                -15px -15px 30px #ffffff;
+                -15px -15px 30px #bebebe;
 }
 
 
@@ -87,7 +95,7 @@ body {
     border-radius: 30px;
     background: #dbc39c;
     box-shadow:  15px 15px 30px #bebebe,
-                -15px -15px 30px #ffffff;
+                -15px -15px 30px #bebebe;
 }
 
 
