@@ -1,0 +1,19 @@
+body {
+    background-color:#eedab9;;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.store_name {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 70px;
+}
+
+
+
+
+

@@ -1,3 +1,10 @@
+Names:
+
+Luxe & Beauty lounge
+Luxe beauty haven
+Luxe beauty Co.
+
+
 Tech stack for the project:
 Frontend - HTML, CSS, JavaScript
 Backend - Python, Flask, SQL
@@ -33,7 +40,8 @@ medium:R300
 long: R400
 
 lashes:
-s
+cluster lashes: R200
+Lashes: R250
 
 Colour scheme for this project
 
