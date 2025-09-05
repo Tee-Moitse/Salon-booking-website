@@ -28,12 +28,66 @@ body {
 
 }
 
+.section-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 45px;
+}
+
+
 .section-2 h2 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 28px;
     /* color: #55a709; */
     /* color: #B76E79; */
     
+}
+
+.section-2 h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.braids {
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    background: #dbc39c;
+    box-shadow:  15px 15px 30px #bebebe,
+                -15px -15px 30px #bebebe;
+}
+
+
+.cornrows {
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    background: #dbc39c;
+    box-shadow:  15px 15px 30px #bebebe,
+                -15px -15px 30px #ffffff;
+}
+
+
+.nails {
+    width: 300px;
+    height:300px;
+    border-radius: 30px;
+    background: #dbc39c;
+    box-shadow:  15px 15px 30px #bebebe,
+                -15px -15px 30px #ffffff;
+}
+
+
+.lashes {
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    background: #dbc39c;
+    box-shadow:  15px 15px 30px #bebebe,
+                -15px -15px 30px #ffffff;
 }
 
 
