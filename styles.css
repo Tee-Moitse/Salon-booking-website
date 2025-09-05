@@ -54,32 +54,54 @@ body {
 
 
 .services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 45px;
+    padding-top: 15px;
+}
+
+.services-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 45px;
+    padding-top: 15px;
 }
 
 
-.braids {
+.card-1 {
     width: 300px;
     height: 300px;
     border-radius: 30px;
+    margin-bottom: 7px;
     background: #dbc39c;
-    box-shadow:  15px 15px 30px #bebebe,
-                -15px -15px 30px #bebebe;
+    box-shadow:  15px 15px 30px #bebebe, -15px -15px 30px #bebebe;
+    padding-bottom: 15px;
 }
 
 
-.cornrows {
+.card-2 {
     width: 300px;
     height: 300px;
     border-radius: 30px;
+    margin-top: 20px;
     background: #dbc39c;
     box-shadow:  15px 15px 30px #bebebe,
                 -15px -15px 30px #bebebe;
+
 }
 
 
-.nails {
+.card-3 {
     width: 300px;
     height:300px;
     border-radius: 30px;
@@ -89,9 +111,10 @@ body {
 }
 
 
-.lashes {
+.card-4 {
     width: 300px;
     height: 300px;
+    margin-top: 30px;
     border-radius: 30px;
     background: #dbc39c;
     box-shadow:  15px 15px 30px #bebebe,
