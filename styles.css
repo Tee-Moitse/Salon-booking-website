@@ -84,8 +84,7 @@ body {
     border-radius: 30px;
     margin-bottom: 7px;
     background: #dbc39c;
-    box-shadow:  15px 15px 30px #bebebe, -15px -15px 30px #bebebe;
-    padding-bottom: 15px;
+    
 }
 
 
@@ -95,8 +94,7 @@ body {
     border-radius: 30px;
     margin-top: 20px;
     background: #dbc39c;
-    box-shadow:  15px 15px 30px #bebebe,
-                -15px -15px 30px #bebebe;
+    
 
 }
 
@@ -106,8 +104,7 @@ body {
     height:300px;
     border-radius: 30px;
     background: #dbc39c;
-    box-shadow:  15px 15px 30px #bebebe,
-                -15px -15px 30px #bebebe;
+    
 }
 
 
@@ -117,8 +114,7 @@ body {
     margin-top: 30px;
     border-radius: 30px;
     background: #dbc39c;
-    box-shadow:  15px 15px 30px #bebebe,
-                -15px -15px 30px #bebebe;
+
 }
 
 
