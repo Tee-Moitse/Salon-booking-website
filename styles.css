@@ -3,6 +3,7 @@ body {
     
 }
 
+/* Intro and heading */
 
 .heading {
     display: flex;
@@ -51,6 +52,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
+/* Services offered */
 
 
 .services {
@@ -116,6 +120,31 @@ body {
     background: #dbc39c;
 
 }
+
+/* Booking section */
+
+
+.booking-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 65px;
+    padding-bottom: 11px;
+}
+
+
+.booking-form {
+    width: 750px;
+    height: 800px;
+    background: #d08308;
+    margin-left: 25%;
+}
+
+
+
+
+
+
 
 
 
