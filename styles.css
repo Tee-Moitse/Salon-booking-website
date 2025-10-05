@@ -3,7 +3,7 @@ body {
     
 }
 
-/* Intro and heading */
+/* INTRO AND HEADING */
 
 .heading {
     display: flex;
@@ -54,7 +54,7 @@ body {
 }
 
 
-/* Services offered */
+/* SERVICES */
 
 
 .services {
@@ -121,7 +121,7 @@ body {
 
 }
 
-/* Booking section */
+/* BOOKING SECTION */
 
 
 .booking-heading {
@@ -141,6 +141,63 @@ body {
 }
 
 
+/* REVIEWS */
+
+.review-heading {
+    padding-top: 45px;
+    margin-left: 35%;
+}
+
+.review-heading h1 {
+    margin-left: 10.5rem;
+    padding-top: 25px;
+    /* margin-bottom: 0; */
+    color: #033f05;
+}
+
+.review-heading p {
+    font-size: large;
+    font-weight: 300;
+    color: #503927;
+}
+
+
+.review-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding-left: 45px;
+    padding-top: 15px; */
+    
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #e3b15b;
+    height: 40vh;
+    width: 100vw;
+}
+
+
+/* .socials {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 0;
+
+} */
+/* 
+.socials h3 {
+    margin-left: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    
+} */
 
 
 
