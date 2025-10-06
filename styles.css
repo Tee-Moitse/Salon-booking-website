@@ -1,5 +1,5 @@
 body {
-    background-color:#eedab9;;
+    background-color:#eedab9;
     
 }
 
@@ -183,6 +183,14 @@ body {
     padding: 20px;
 }
 
+.review-card h3 {
+    color: #331d0e;
+}
+
+.review-card p {
+    color: #331d0e;
+}
+
 .rating {
     margin-right: 120px;
 
@@ -231,7 +239,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #e3b15b;
+    background-color: #eedab9;
     padding: 40px 20px;
     height: 40vh;
     width: 100vw;
@@ -250,7 +258,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Adds spacing between buttons horizontally and vertically */
+    gap: 20px;
     margin-bottom: 20px;
 }
 
@@ -324,11 +332,20 @@ body {
     margin-left: 10px;
 }
 
+.contacts h2{
+    color:#033f05;
+}
+
 
 .words h2 {
+    color: #503927;
     font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
+}
+
+.words p {
+    color: #352214;
 }
 
 
