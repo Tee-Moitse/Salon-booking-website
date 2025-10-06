@@ -173,7 +173,7 @@ body {
 }
 
 .review-cards .review-card {
-    background-color: white;
+    background-color: #dbc39c;
     display: flex;
     flex-direction: column;
     width: 250px;
@@ -183,13 +183,18 @@ body {
     padding: 20px;
 }
 
+.rating {
+    margin-right: 120px;
+
+}
+
 .rating:not(:checked) > input {
   position: absolute;
   appearance: none;
 }
 
 .rating:not(:checked) > label {
-  float: left;
+  float: right;
   cursor: pointer;
   font-size: 30px;
   color: #666;
@@ -207,10 +212,11 @@ body {
   color: #e58e09;
 }
 
+/* 
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
   color: #ff9e0b;
-}
+} */
 
 .rating > input:checked ~ label {
   color: #ffa723;
@@ -263,6 +269,7 @@ body {
 }
 
 
+
 .wrapper .button:hover {
     width: 200px;
 }
@@ -285,6 +292,32 @@ body {
     line-height: 60px;
 
 }
+
+
+/* Whatsapp */
+.wrapper .button:nth-child(1):hover .icon {
+    background-color: #16b521;
+}
+
+/* Instagram */
+.wrapper .button:nth-child(2):hover .icon {
+    background-color: #dd49b5;
+}
+
+
+/* TikTok */
+.wrapper .button:nth-child(3):hover .icon {
+    background-color: #ebedf3;
+}
+
+
+/* Email */
+.wrapper .button:nth-child(4):hover .icon {
+    background-color: #d73218;
+}
+
+
+
 
 
 .wrapper .button span {
