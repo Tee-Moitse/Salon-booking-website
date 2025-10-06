@@ -172,37 +172,91 @@ body {
     
 }
 
+/* Footer and Socials section */
+
 
 .footer {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     background-color: #e3b15b;
+    padding: 40px 20px;
     height: 40vh;
     width: 100vw;
 }
 
+.contacts h2 {
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
 
-/* .socials {
+.wrapper {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 0;
-
-} */
-/* 
-.socials h3 {
-    margin-left: 50px;
-    display: flex;
-    justify-content: space-evenly;
-    
-} */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adds spacing between buttons horizontally and vertically */
+    margin-bottom: 20px;
+}
 
 
 
+.wrapper .button{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin: 0 5px;
+    background: pink;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0,0,0.1);
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+}
+
+.wrapper .button:hover {
+    width: 200px;
+
+}
+
+
+.wrapper .button .icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+
+}
+
+.wrapper .button .icon i{
+    font-size: 25px;
+    line-height: 60px;
+
+}
+
+.wrapper .button span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+}
+
+
+.words h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
 
 
-
-
+footer p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
