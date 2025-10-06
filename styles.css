@@ -164,13 +164,59 @@ body {
 
 .review-cards {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    /* padding-left: 45px;
-    padding-top: 15px; */
+    align-items: flex-start;
+    gap: 30px;
+    padding-top: 40px 20px;
     
 }
+
+.review-cards .review-card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-height: 160px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: left;
+  cursor: pointer;
+  font-size: 30px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+}
+
+
 
 /* Footer and Socials section */
 
@@ -185,12 +231,14 @@ body {
     width: 100vw;
 }
 
+
 .contacts h2 {
     margin-bottom: 40px;
     font-size: 24px;
     color: #333;
     text-align: center;
 }
+
 
 .wrapper {
     display: flex;
@@ -201,12 +249,10 @@ body {
 }
 
 
-
 .wrapper .button{
     display: inline-block;
     height: 60px;
     width: 60px;
-    float: left;
     margin: 0 5px;
     background: pink;
     border-radius: 50px;
@@ -216,9 +262,9 @@ body {
     overflow: hidden;
 }
 
+
 .wrapper .button:hover {
     width: 200px;
-
 }
 
 
@@ -233,11 +279,13 @@ body {
 
 }
 
+
 .wrapper .button .icon i{
     font-size: 25px;
     line-height: 60px;
 
 }
+
 
 .wrapper .button span {
     font-size: 20px;
@@ -252,7 +300,6 @@ body {
     margin-bottom: 20px;
     text-align: center;
 }
-
 
 
 footer p {
