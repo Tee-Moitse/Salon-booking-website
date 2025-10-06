@@ -55,6 +55,20 @@ body {
 
 /* SERVICES */
 
+.service-intro h1{
+    text-align: center;
+    color: #033f05;
+}
+
+.service-intro p{
+    font-weight: 300;
+    font-size: large;
+    text-align: center;
+    color: #503927;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 
 .services {
     display: flex;
