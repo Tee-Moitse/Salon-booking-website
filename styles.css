@@ -39,11 +39,9 @@ body {
 
 
 .section-2 h2 {
+    color: #352214;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 28px;
-    /* color: #55a709; */
-    /* color: #B76E79; */
-    
 }
 
 
@@ -51,6 +49,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #352214;
 }
 
 
