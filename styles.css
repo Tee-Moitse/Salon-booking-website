@@ -175,6 +175,10 @@ body {
 
 /* REVIEWS */
 
+.reviews {
+    margin-top: 40px;
+}
+
 .review-heading {
     padding-top: 45px;
     margin-left: 35%;
@@ -273,6 +277,7 @@ body {
     align-items: center;
     background-color: #eedab9;
     padding: 40px 20px;
+    margin-top: 40px;
     height: 40vh;
     width: 100vw;
 }
