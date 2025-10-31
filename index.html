@@ -49,14 +49,80 @@
             </div>
         </div>
     </div>
-    <section class="">
-        <div class="booking">
-            <h2 class="booking-heading">Book your appoinment right here:</h2>
-            <div class="booking-form"></div>
+    <section class="booking">
+        <h2 class="booking-heading">Book your appoinment right here:</h2>
+        <div class="booking-form">
+            <form action="/submit-form" method="post">
+                <div class="form-container">
+                    <div class="form-field">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="user_name" />
+                    </div>
+                    <div class="form-field">
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" name="user_email" />
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="user_phone" />
+                    </div>
+                    <div class="form-field">
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" name="user_email" />
+                    </div>
+
+                    <p>What services are you booking for?</p>
+
+                        <label>
+                        <input type="checkbox" name="services" value="Hair">
+                        Hair
+                        </label><br>
+
+                        <label>
+                        <input type="checkbox" name="services" value="nails">
+                        Nails
+                        </label><br>
+
+                        <label>
+                        <input type="checkbox" name="services" value="lashes">
+                        Lashes
+                        </label><br>
+
+                        <label>
+                        <input type="checkbox" name="services" value="makeup">
+                        Make up
+                        </label><br>
+
+                        <p class="">Please select the time you would like to book for your appointment:</p>
+                        <label for="time">Please select the time you would like to book for your appointment:</label>
+                            <select name="time" id="time">
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                            </select>
+                            <br><br>
+
+
+                </div>
+            </form>
         </div>
+        
     </section>
-    
-    <!-- <hr> -->
      <!-- Reviews -->
     <section class="reviews">
             <!-- <div class="reviews"> -->
@@ -118,8 +184,6 @@
         </div>
     <!-- </div> -->
     </section>
-
-    
      <section class="footer">
         <div class="footer">
         <div class="contacts">
