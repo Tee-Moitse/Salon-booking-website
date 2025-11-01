@@ -185,7 +185,7 @@ body {
 }
 
 /* Pay button */
-.pay-btn {
+/* .pay-btn {
   position: relative;
   padding: 12px 24px;
   font-size: 16px;
@@ -228,7 +228,7 @@ body {
 }
 
 /* Hover animations */
-.pay-btn:hover .icon {
+/* .pay-btn:hover .icon {
   animation: none;
 }
 
@@ -255,10 +255,10 @@ body {
 .pay-btn:hover .check-icon {
   animation: iconRotate 2.5s infinite;
   animation-delay: 1.5s;
-}
+} */
 
 /* Active state - show only checkmark */
-.pay-btn:active .icon {
+/* .pay-btn:active .icon {
   animation: none;
   opacity: 0;
   visibility: hidden;
@@ -319,8 +319,8 @@ body {
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
-}
-
+} */
+ 
 
 
 
