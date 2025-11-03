@@ -182,7 +182,16 @@ body {
 
 .form-field {
     font-size: 22px;
+    
 }
+
+.date-time {
+  display: flex;
+  justify-content: center;
+  
+}
+
+
 
 /* Pay button */
 /* .pay-btn {

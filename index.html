@@ -66,10 +66,7 @@
                         <label for="phone">Phone Number:</label>
                         <input type="tel" id="phone" name="user_phone" />
                     </div>
-                    <div class="form-field">
-                        <label for="mail">Email:</label>
-                        <input type="email" id="mail" name="user_email" />
-                    </div>
+                
 
                     <p class="book-service">What services are you booking for?</p>
 
@@ -93,28 +90,35 @@
                         Make up
                         </label><br>
 
-                        <p class="timeslot">Please select the time you would like to book for your appointment:</p>
-                        <label for="time">Please select the time you would like to book for your appointment:</label>
-                            <select name="time" id="time">
-                                <option value="08:30">08:30</option>
-                                <option value="09:00">09:00</option>
-                                <option value="09:30">09:30</option>
-                                <option value="10:00">10:00</option>
-                                <option value="10:30">10:30</option>
-                                <option value="11:00">11:00</option>
-                                <option value="11:30">11:30</option>
-                                <option value="12:00">12:00</option>
-                                <option value="12:30">12:30</option>
-                                <option value="13:00">13:00</option>
-                                <option value="13:30">13:30</option>
-                                <option value="14:00">14:00</option>
-                                <option value="14:30">14:30</option>
-                                <option value="15:00">15:00</option>
-                                <option value="15:30">15:30</option>
-                                <option value="16:00">16:00</option>
-                                <option value="16:30">16:30</option>
-                                <option value="17:00">17:00</option>
-                            </select>
+                        
+                        <p class="timeslot">Please select the date and time you would like to book for your appointment:</p>
+
+                        <div class="date-time">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" />
+                        
+                            <label for="time">Time</label>
+                                <select name="time" id="time">
+                                    <option value="08:30">08:30</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="12:30">12:30</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:30">16:30</option>
+                                    <option value="17:00">17:00</option>
+                                </select>
+                             </div>
                             <br><br>
                             <p class="disclaimer">Please do not forget to pay the R50 as a deposit! Please pay below</p>
                             <!-- <button class="pay-btn">
