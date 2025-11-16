@@ -246,8 +246,9 @@ select {
 .pay-btn {
   position: relative;
   padding: 12px 24px;
+  margin-bottom: 20px;
   font-size: 16px;
-  background: #1a1a1a;
+  background: #37270e;
   color: white;
   border: none;
   border-radius: 8px;
@@ -260,6 +261,7 @@ select {
 
 .pay-btn:hover {
   transform: translateY(-2px);
+  background: #331d0e;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -275,7 +277,7 @@ select {
   left: 0;
   width: 24px;
   height: 24px;
-  color: #22c55e;
+  color: #3ed01d;
   opacity: 0;
   visibility: hidden;
 }
