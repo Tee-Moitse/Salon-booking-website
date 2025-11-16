@@ -421,7 +421,7 @@ select {
     background-color: #dbc39c;
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 300px;
     min-height: 160px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -486,7 +486,7 @@ select {
     align-items: center;
     background-color: #eedab9;
     padding: 40px 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     height: 40vh;
     width: 100vw;
 }
@@ -550,12 +550,12 @@ select {
 
 /* Whatsapp */
 .wrapper .button:nth-child(1):hover .icon {
-    background-color: #16b521;
+    background-color: #0edd5a;
 }
 
 /* Instagram */
 .wrapper .button:nth-child(2):hover .icon {
-    background-color: #dd49b5;
+    background-color: #C13584;
 }
 
 
