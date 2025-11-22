@@ -48,54 +48,62 @@
                 <img src="./images/Lashes.jpg" alt="Lashes" class="card-image">
             </div>
         </div>
-    </div>
+    </div>    
     <section class="booking">
-
         <div class="booking-form">
-            <form action="/submit-form" method="post">
-                <!--2nd attempt  -->
             <div class="container">
-                <h1>Book Your Salon Appointment</h1>
-                <form id="booking-form">
-                    <div class="form-group">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div><div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Appointment Date:</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Appointment Time:</label>
-                                        <select name="time" id="time">
-                                            <option value="08:30">08:30</option>
-                                            <option value="09:00">09:00</option>
-                                            <option value="09:30">09:30</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="10:30">10:30</option>
-                                            <option value="11:00">11:00</option>
-                                            <option value="11:30">11:30</option>
-                                            <option value="12:00">12:00</option>
-                                            <option value="12:30">12:30</option>
-                                            <option value="13:00">13:00</option>
-                                            <option value="13:30">13:30</option>
-                                            <option value="14:00">14:00</option>
-                                            <option value="14:30">14:30</option>
-                                            <option value="15:00">15:00</option>
-                                            <option value="15:30">15:30</option>
-                                            <option value="16:00">16:00</option>
-                                            <option value="16:30">16:30</option>
-                                            <option value="17:00">17:00</option>
-                                        </select>
-                    </div>
-                    <div class="form-group">
+            <h1>Book Your Salon Appointment</h1>
+            <form id="booking-form">
+                <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                <label for="date">Appointment Date:</label>
+                <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                <label for="time">Appointment Time:</label>
+                <select name="time" id="time" required>
+                    <option value="08:30">08:30</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                <div id="services-container">
+                    <!-- Services checkboxes will be dynamically loaded here -->
+                </div>
+                </div>
+                <div class="form-group">
                         <label for="service">Select the service/s you want to book:</label>
                             <label>
                             <input type="checkbox" name="services" value="Hair">
@@ -118,7 +126,7 @@
                     <div class="form-group">
                         <p>REQUIRED! Deposit: R50 (Required for booking)</p>
                     </div>
-                    <!-- From Uiverse.io by fthisilak --> 
+                   
             <button class="pay-btn">
             <span class="btn-text">Pay Now</span>
             <div class="icon-container">
@@ -157,20 +165,13 @@
             </div>
             </button>
 
-                    
-                                    
-                    <button type="submit" class="submit-btn">Book Appointment</button>
-                </form>
-            </div>
-
-                </div>
+                <button type="submit" class="submit-btn">Book Appointment</button>
             </form>
-        </div>      
+            </div>
+        </div>
     </section>
 
-
-     <!-- Reviews -->
-    <section class="reviews">
+     <section class="reviews">
             <!-- <div class="reviews"> -->
         <div class="review-heading">
             <h1>Reviews</h1>
