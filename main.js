@@ -98,3 +98,78 @@ bookingForm.addEventListener('submit', async (e) => {
   alert('Appointment(s) successfully booked!');
   bookingForm.reset();
 });
+
+
+function showNotification(message, success = true) {
+  const notification = document.getElementById('notification');
+  notification.textContent = message;
+  notification.style.backgroundColor = success ? '#4CAF50' : '#f44336'; // green for success, red for error
+  notification.style.display = 'block';
+  
+  // Hide after 4 seconds
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 4000);
+}
+
+
+
+//Booking form
+bookingForm.addEventListener('submit', async (e) => {
+  e.preventDefault(); // prevent page refresh
+
+  // Collect form values
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const services = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+                        .map(cb => cb.value);
+
+  if (services.length === 0) {
+    showNotification('Please select at least one service', false);
+    return;
+  }
+
+  const appointment_time = new Date(`${date}T${time}:00`).toISOString();
+
+  try {
+    for (let serviceName of services) {
+      const { data: serviceData } = await supabase
+        .from('services')
+        .select('id')
+        .eq('name', serviceName)
+        .single();
+
+      const service_id = serviceData.id;
+
+      const { data: staffData } = await supabase
+        .from('staff')
+        .select('id')
+        .limit(1)
+        .single();
+
+      const staff_id = staffData.id;
+
+      const { error } = await supabase.from('appointments').insert([
+        {
+          customer_name: name,
+          customer_phone: phone,
+          service_id,
+          staff_id,
+          appointment_time
+        }
+      ]);
+
+      if (error) throw error;
+    }
+
+    // Show success notification
+    showNotification('Appointment(s) successfully booked!');
+    bookingForm.reset();
+
+  } catch (err) {
+    console.error('Booking error:', err);
+    showNotification('Failed to book appointment', false);
+  }
+});
