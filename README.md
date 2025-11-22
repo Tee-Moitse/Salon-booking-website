@@ -48,23 +48,10 @@ project-root/
 ├── index.html              # Home page (landing + services + booking)
 └── README.md               # Project documentation
 
-````
 
 ---
 
-## 🚀 How to Use
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/luxe-beauty-haven.git
 ````
-
-2. Open the project in your code editor.
-
-3. Open `index.html` in your browser to view the site.
-
----
-
 ## 🔮 Future Plans
 
 * Integrate backend with **Node.js/Express** or **Django**
@@ -72,29 +59,5 @@ project-root/
 * Enable actual **payment processing** (e.g. via Paystack or Stripe)
 * Add user authentication for admin/salon access
 * Fully mobile-responsive optimization
-
 ---
 
-## 🙌 Acknowledgements
-
-This project is part of a broader initiative to explore how technology can help small businesses like salons manage appointments and client communication more efficiently.
-
----
-
-## 📸 Preview
-
-![Luxe Beauty Haven Screenshot](./images/screenshot.png)
-*Screenshot of homepage or services section*
-
----
-
-## 👩‍💻 Author
-
-**Your Name**
-Frontend Developer
-[Your GitHub](https://github.com/yourusername) | [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
-
-
-Let me know if you'd like a separate README for your upcoming **GlowBook platform**, or help turning this into a live GitHub Pages site!
-```
