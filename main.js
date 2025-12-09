@@ -1,5 +1,21 @@
 import { supabase } from './supabaseClient.js';
 
+// ============================================
+// EMAILJS CONFIGURATION
+// ============================================
+// IMPORTANT: Replace these with your actual EmailJS credentials
+// Get them from: https://dashboard.emailjs.com/
+const EMAILJS_CONFIG = {
+  PUBLIC_KEY: 'YOUR_PUBLIC_KEY_HERE',      // Replace with your EmailJS public key
+  SERVICE_ID: 'YOUR_SERVICE_ID_HERE',      // Replace with your EmailJS service ID
+  TEMPLATE_ID: 'YOUR_TEMPLATE_ID_HERE'     // Replace with your EmailJS template ID
+};
+
+// Initialize EmailJS (only if keys are configured)
+if (EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
+  emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+}
+
 const bookingForm = document.getElementById('booking-form');
 const servicesContainer = document.getElementById('services-container');
 
@@ -9,7 +25,7 @@ function showNotification(message, success = true) {
   notification.textContent = message;
   notification.style.backgroundColor = success ? '#4CAF50' : '#f44336';
   notification.style.display = 'block';
-  
+
   setTimeout(() => {
     notification.style.display = 'none';
   }, 4000);
@@ -37,7 +53,7 @@ async function loadServices() {
         checkbox.name = 'services';
         checkbox.value = service.name;
         checkbox.dataset.serviceId = service.id;
-        
+
         label.appendChild(checkbox);
         label.append(` ${service.name} - R${service.price}`);
         servicesContainer.appendChild(label);
@@ -54,6 +70,76 @@ async function loadServices() {
 
 // Load services when page loads
 loadServices();
+
+// ============================================
+// EMAIL CONFIRMATION FUNCTION
+// ============================================
+async function sendConfirmationEmail(bookingDetails) {
+  // Skip if EmailJS is not configured
+  if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE') {
+    console.log('EmailJS not configured. Skipping email notification.');
+    return { success: false, reason: 'not_configured' };
+  }
+
+  // Skip if customer didn't provide email
+  if (!bookingDetails.email) {
+    console.log('No email provided by customer. Skipping email notification.');
+    return { success: false, reason: 'no_email' };
+  }
+
+  try {
+    // Format the services list
+    const servicesList = bookingDetails.services
+      .map(s => `${s.name} - R${s.price}`)
+      .join(', ');
+
+    // Calculate total price
+    const totalPrice = bookingDetails.services.reduce((sum, s) => sum + parseFloat(s.price), 0);
+
+    // Format date and time nicely
+    const appointmentDate = new Date(bookingDetails.appointment_time);
+    const formattedDate = appointmentDate.toLocaleDateString('en-ZA', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    const formattedTime = appointmentDate.toLocaleTimeString('en-ZA', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    // Email template parameters
+    const templateParams = {
+      customer_name: bookingDetails.name,
+      customer_email: bookingDetails.email,
+      customer_phone: bookingDetails.phone,
+      services: servicesList,
+      total_price: totalPrice.toFixed(2),
+      appointment_date: formattedDate,
+      appointment_time: formattedTime,
+      staff_name: bookingDetails.staffName || 'Our specialist',
+      booking_reference: bookingDetails.bookingId || 'TBD',
+      salon_name: 'Luxe Beauty Haven',
+      salon_phone: '+27 XX XXX XXXX',  // Replace with actual salon phone
+      salon_address: 'Your Salon Address Here'  // Replace with actual address
+    };
+
+    // Send email via EmailJS
+    const response = await emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
+      templateParams
+    );
+
+    console.log('Email sent successfully:', response);
+    return { success: true, response };
+
+  } catch (error) {
+    console.error('Failed to send email:', error);
+    return { success: false, error };
+  }
+}
 
 // Handle form submission
 bookingForm.addEventListener('submit', async (e) => {
@@ -128,7 +214,46 @@ bookingForm.addEventListener('submit', async (e) => {
 
     // Show result
     if (successCount > 0 && failCount === 0) {
-      showNotification(`Successfully booked ${successCount} appointment(s)!`, true);
+      // Create booking details for email
+      const bookingDetails = {
+        name,
+        email,
+        phone,
+        services: selectedServices.map(s => ({
+          name: s.name,
+          price: 350.00  // You might want to fetch actual prices from Supabase
+        })),
+        appointment_time,
+        staffName: 'Our specialist',  // Could be fetched from staffData if needed
+        bookingId: `LBH-${Date.now()}`  // Simple booking reference
+      };
+
+      // Send confirmation email
+      const emailResult = await sendConfirmationEmail(bookingDetails);
+
+      // Show success message with email status
+      if (emailResult.success) {
+        showNotification(
+          `✅ Successfully booked ${successCount} appointment(s)! A confirmation email has been sent to ${email}.`,
+          true
+        );
+      } else if (emailResult.reason === 'no_email') {
+        showNotification(
+          `✅ Successfully booked ${successCount} appointment(s)! (No email provided for confirmation)`,
+          true
+        );
+      } else if (emailResult.reason === 'not_configured') {
+        showNotification(
+          `✅ Successfully booked ${successCount} appointment(s)! (Email notifications not yet configured)`,
+          true
+        );
+      } else {
+        showNotification(
+          `✅ Successfully booked ${successCount} appointment(s)! (Note: Confirmation email failed to send, but your booking is confirmed)`,
+          true
+        );
+      }
+
       bookingForm.reset();
       loadServices(); // Reload services to reset checkboxes
     } else if (successCount > 0 && failCount > 0) {

@@ -3,7 +3,7 @@
 
 
 // Import Supabase library
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.87.0/dist/umd/supabase.min.js';
 
 // Replace with your project URL and anon key
 const SUPABASE_URL = "https://tdyvxqdjlxkrswsokehu.supabase.co";
