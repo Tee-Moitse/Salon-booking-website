@@ -52,8 +52,6 @@ EmailJS is a free service that lets you send emails directly from JavaScript wit
       <p><strong>Date:</strong> {{appointment_date}}</p>
       <p><strong>Time:</strong> {{appointment_time}}</p>
       <p><strong>Service(s):</strong> {{services}}</p>
-      <p><strong>Total Price:</strong> R{{total_price}}</p>
-      <p><strong>Your Specialist:</strong> {{staff_name}}</p>
     </div>
     
     <div style="background-color: #fff9e6; padding: 15px; border-radius: 5px; margin: 20px 0;">
@@ -167,8 +165,6 @@ const EMAILJS_CONFIG = {
 - `services`
 - `appointment_date`
 - `appointment_time`
-- `total_price`
-- `staff_name`
 - `booking_reference`
 - `salon_name`
 - `salon_phone`
@@ -189,7 +185,7 @@ If you need more, you can upgrade to a paid plan.
 - EmailJS Public Keys are designed to be exposed in browsers
 
 ### Booking Still Works Without Email
-Even if email sending fails, the appointment will still be saved to your Supabase database. Customers just won't receive a confirmation email.
+Even if email sending fails, the appointment will still be saved to your browser's localStorage. Customers just won't receive a confirmation email.
 
 ## Next Steps
 
@@ -198,7 +194,7 @@ Once email confirmations are working, you might want to:
 2. **Create reminder emails** - Send reminders 24 hours before appointments
 3. **Add cancellation emails** - Notify customers when appointments are cancelled
 
-These would require setting up additional EmailJS templates and potentially using Supabase Edge Functions for automated scheduling.
+These would require setting up additional EmailJS templates and potentially using a backend server or scheduling service for automated notifications.
 
 ---
 

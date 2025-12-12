@@ -1,42 +1,28 @@
-# Quick Start Guide - Supabase Backend
+# Quick Start Guide - Luxe Beauty Haven
 
-## 🚀 Your Backend is Ready!
+## 🚀 Your Salon Booking Website
 
-Your salon booking website now has a fully functional Supabase backend. Here's what you need to do to get it running:
+Your salon booking website is ready to use! Here's how to get started:
 
-## ⚡ Quick Setup (5 minutes)
+## ⚡ Quick Setup (2 minutes)
 
-### 1. Run the SQL Script
-
-1. Go to https://supabase.com and sign in
-2. Open your project dashboard
-3. Click **SQL Editor** in the left sidebar
-4. Click **New Query**
-5. Open the file `supabase-setup.sql` in your project
-6. Copy ALL the content and paste it into the SQL Editor
-7. Click **Run** (or press Ctrl+Enter)
-
-✅ You should see "Success. No rows returned"
-
-### 2. Verify Tables
-
-1. Click **Table Editor** in the left sidebar
-2. You should see 3 tables:
-   - **services** - Should have 4 rows (Hair, Nails, Lashes, Make up)
-   - **staff** - Should have 4 rows (staff members)
-   - **appointments** - Should be empty (will fill up when customers book)
-
-### 3. Test Your Website
+### 1. Start a Local Server
 
 ```bash
-# Start a local server
-cd "/home/wtc_/GitHub projects/LBH/Salon-booking-website"
-python3 -m http.server 8000
+# Navigate to your project directory
+cd "c:\Users\Tetlanyo\Documents\GitHub\Luxe Beauty Haven\Salon-booking-website"
+
+# Start a local server (choose one):
+# Option 1: Python
+python -m http.server 8000
+
+# Option 2: Node.js (if you have npm installed)
+npx http-server -p 8000
 ```
 
 Then open http://localhost:8000 in your browser
 
-### 4. Make a Test Booking
+### 2. Test Your Website
 
 1. Scroll to the booking form
 2. Fill in your details
@@ -44,60 +30,77 @@ Then open http://localhost:8000 in your browser
 4. Click "Book Appointment"
 5. You should see a green success message!
 
-### 5. Check the Database
-
-1. Go back to Supabase
-2. Click **Table Editor** > **appointments**
-3. You should see your test booking!
-
 ---
 
 ## 📁 Files Overview
 
 | File | What It Does |
 |------|--------------|
-| `supabase-setup.sql` | Creates all database tables and sample data |
-| `SUPABASE_SETUP.md` | Detailed setup guide with troubleshooting |
-| `supabaseClient.js` | Connects your website to Supabase |
 | `main.js` | Handles form submission and bookings |
-| `index.html` | Your website (updated to support modules) |
+| `index.html` | Your website |
+| `styles.css` | Website styling |
+| `email-setup-guide.md` | Instructions for setting up email notifications |
 
 ---
 
 ## 🎯 What Works Now
 
-✅ Services load automatically from database  
 ✅ Customers can book appointments  
-✅ Bookings are saved to Supabase  
+✅ Bookings are saved to browser localStorage  
 ✅ Success/error notifications  
 ✅ Email field is captured (optional)  
 ✅ Multiple services can be booked at once  
+✅ Service selection via checkboxes  
+
+---
+
+## 💾 How Bookings Are Stored
+
+Currently, bookings are saved to your browser's **localStorage**. This means:
+- ✅ Bookings persist across page refreshes
+- ✅ No external database needed for testing
+- ⚠️ Bookings are only visible on the same browser/device
+- ⚠️ Clearing browser data will delete bookings
+
+### Viewing Bookings
+
+You can view all bookings in the browser console:
+
+1. Press F12 to open Developer Tools
+2. Go to the **Console** tab
+3. Type: `JSON.parse(localStorage.getItem('bookings'))`
+4. Press Enter to see all bookings
+
+---
+
+## 📧 Email Notifications (Optional)
+
+To enable automatic confirmation emails:
+
+1. Read `email-setup-guide.md` for detailed instructions
+2. Sign up for a free EmailJS account
+3. Update the credentials in `main.js`
+4. Configure your email template
+
+Without EmailJS configured, bookings will still work - customers just won't receive confirmation emails.
 
 ---
 
 ## 🔧 Common Issues
 
-**Services not showing?**
-- Run the SQL script in Supabase first
-- Check browser console (F12) for errors
-
 **"Cannot use import statement outside a module"?**
-- Use a local server (python3 -m http.server 8000)
-- Don't open the HTML file directly
+- Use a local server (see Step 1)
+- Don't open the HTML file directly by double-clicking
 
-**Booking not working?**
-- Make sure you ran the SQL script
-- Check that services and staff exist in database
-- Look at browser console for error messages
-
----
-
-## 📚 Need More Help?
-
-- Read `SUPABASE_SETUP.md` for detailed instructions
-- Read `walkthrough.md` to see what was done
+**Form not submitting?**
 - Check browser console (F12) for error messages
-- Check Supabase logs in the dashboard
+- Make sure all required fields are filled
+- Ensure at least one service is selected
+
+**Want to clear all test bookings?**
+- Open browser console (F12)
+- Type: `localStorage.clear()`
+- Press Enter
 
 ---
 
@@ -105,23 +108,36 @@ Then open http://localhost:8000 in your browser
 
 Once everything is working, you can:
 
-1. **Customize Services**
-   - Go to Supabase > Table Editor > services
-   - Add, edit, or remove services
-   - Changes appear immediately on your website!
+1. **Set Up Email Notifications**
+   - Follow the guide in `email-setup-guide.md`
+   - Get automatic confirmation emails for customers
 
-2. **Add More Staff**
-   - Go to Supabase > Table Editor > staff
-   - Add new staff members
+2. **Customize Services**
+   - Edit `index.html` (around line 108-126)
+   - Add, edit, or remove service checkboxes
 
-3. **View Bookings**
-   - Go to Supabase > Table Editor > appointments
-   - See all customer bookings
-   - Update status (pending → confirmed → completed)
+3. **Add a Backend (Optional)**
+   - Consider using:
+     - Firebase (Google's backend service)
+     - MongoDB + Express
+     - Your own custom backend
+   - This will allow you to manage bookings from any device
 
 4. **Deploy Your Website**
    - Use Netlify, Vercel, or GitHub Pages
-   - Your Supabase backend works from anywhere!
+   - Your website will be live on the internet!
+   - Note: localStorage bookings won't sync across deployments
+
+---
+
+## 🛠️ Future Enhancements You Could Add
+
+- Admin dashboard to view/manage bookings
+- Calendar integration
+- SMS notifications
+- Payment processing integration
+- Customer login/account system
+- Booking availability checker
 
 ---
 

@@ -1,5 +1,3 @@
-import { supabase } from './supabaseClient.js';
-
 // ============================================
 // EMAILJS CONFIGURATION
 // ============================================
@@ -17,7 +15,6 @@ if (EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
 }
 
 const bookingForm = document.getElementById('booking-form');
-const servicesContainer = document.getElementById('services-container');
 
 // Show notification to user
 function showNotification(message, success = true) {
@@ -30,46 +27,6 @@ function showNotification(message, success = true) {
     notification.style.display = 'none';
   }, 4000);
 }
-
-// Dynamically load services from Supabase
-async function loadServices() {
-  try {
-    const { data, error } = await supabase.from('services').select('*');
-
-    if (error) {
-      console.error('Error fetching services:', error);
-      showNotification('Failed to load services. Please refresh the page.', false);
-      return;
-    }
-
-    // Clear existing content
-    servicesContainer.innerHTML = '';
-
-    if (data && data.length > 0) {
-      data.forEach(service => {
-        const label = document.createElement('label');
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.name = 'services';
-        checkbox.value = service.name;
-        checkbox.dataset.serviceId = service.id;
-
-        label.appendChild(checkbox);
-        label.append(` ${service.name} - R${service.price}`);
-        servicesContainer.appendChild(label);
-        servicesContainer.appendChild(document.createElement('br'));
-      });
-    } else {
-      servicesContainer.innerHTML = '<p>No services available at the moment.</p>';
-    }
-  } catch (err) {
-    console.error('Error loading services:', err);
-    showNotification('Failed to load services. Please refresh the page.', false);
-  }
-}
-
-// Load services when page loads
-loadServices();
 
 // ============================================
 // EMAIL CONFIRMATION FUNCTION
@@ -89,12 +46,7 @@ async function sendConfirmationEmail(bookingDetails) {
 
   try {
     // Format the services list
-    const servicesList = bookingDetails.services
-      .map(s => `${s.name} - R${s.price}`)
-      .join(', ');
-
-    // Calculate total price
-    const totalPrice = bookingDetails.services.reduce((sum, s) => sum + parseFloat(s.price), 0);
+    const servicesList = bookingDetails.services.join(', ');
 
     // Format date and time nicely
     const appointmentDate = new Date(bookingDetails.appointment_time);
@@ -115,10 +67,8 @@ async function sendConfirmationEmail(bookingDetails) {
       customer_email: bookingDetails.email,
       customer_phone: bookingDetails.phone,
       services: servicesList,
-      total_price: totalPrice.toFixed(2),
       appointment_date: formattedDate,
       appointment_time: formattedTime,
-      staff_name: bookingDetails.staffName || 'Our specialist',
       booking_reference: bookingDetails.bookingId || 'TBD',
       salon_name: 'Luxe Beauty Haven',
       salon_phone: '+27 XX XXX XXXX',  // Replace with actual salon phone
@@ -154,10 +104,7 @@ bookingForm.addEventListener('submit', async (e) => {
 
   // Get selected services
   const selectedServices = Array.from(document.querySelectorAll('input[name="services"]:checked'))
-    .map(cb => ({
-      name: cb.value,
-      id: cb.dataset.serviceId
-    }));
+    .map(cb => cb.value);
 
   // Validation
   if (selectedServices.length === 0) {
@@ -174,93 +121,45 @@ bookingForm.addEventListener('submit', async (e) => {
   const appointment_time = new Date(`${date}T${time}:00`).toISOString();
 
   try {
-    let successCount = 0;
-    let failCount = 0;
+    // Create booking details for email and local storage
+    const bookingDetails = {
+      name,
+      email,
+      phone,
+      services: selectedServices,
+      appointment_time,
+      bookingId: `LBH-${Date.now()}`,  // Simple booking reference
+      status: 'pending',
+      created_at: new Date().toISOString()
+    };
 
-    for (let service of selectedServices) {
-      // Get a staff member (randomly select one)
-      const { data: staffData, error: staffError } = await supabase
-        .from('staff')
-        .select('id')
-        .limit(1)
-        .single();
+    // Save booking to localStorage
+    const existingBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+    existingBookings.push(bookingDetails);
+    localStorage.setItem('bookings', JSON.stringify(existingBookings));
 
-      if (staffError || !staffData) {
-        console.error('No staff available', staffError);
-        failCount++;
-        continue;
-      }
+    // Send confirmation email
+    const emailResult = await sendConfirmationEmail(bookingDetails);
 
-      // Insert appointment
-      const { error: insertError } = await supabase.from('appointments').insert([
-        {
-          customer_name: name,
-          customer_phone: phone,
-          customer_email: email || null,
-          service_id: service.id,
-          staff_id: staffData.id,
-          appointment_time,
-          status: 'pending'
-        }
-      ]);
+    // Show success message with email status
+    let successMessage = `✅ Successfully booked ${selectedServices.length} service(s)!`;
 
-      if (insertError) {
-        console.error(`Failed to book ${service.name}:`, insertError);
-        failCount++;
-      } else {
-        successCount++;
-      }
-    }
-
-    // Show result
-    if (successCount > 0 && failCount === 0) {
-      // Create booking details for email
-      const bookingDetails = {
-        name,
-        email,
-        phone,
-        services: selectedServices.map(s => ({
-          name: s.name,
-          price: 350.00  // You might want to fetch actual prices from Supabase
-        })),
-        appointment_time,
-        staffName: 'Our specialist',  // Could be fetched from staffData if needed
-        bookingId: `LBH-${Date.now()}`  // Simple booking reference
-      };
-
-      // Send confirmation email
-      const emailResult = await sendConfirmationEmail(bookingDetails);
-
-      // Show success message with email status
-      if (emailResult.success) {
-        showNotification(
-          `✅ Successfully booked ${successCount} appointment(s)! A confirmation email has been sent to ${email}.`,
-          true
-        );
-      } else if (emailResult.reason === 'no_email') {
-        showNotification(
-          `✅ Successfully booked ${successCount} appointment(s)! (No email provided for confirmation)`,
-          true
-        );
-      } else if (emailResult.reason === 'not_configured') {
-        showNotification(
-          `✅ Successfully booked ${successCount} appointment(s)! (Email notifications not yet configured)`,
-          true
-        );
-      } else {
-        showNotification(
-          `✅ Successfully booked ${successCount} appointment(s)! (Note: Confirmation email failed to send, but your booking is confirmed)`,
-          true
-        );
-      }
-
-      bookingForm.reset();
-      loadServices(); // Reload services to reset checkboxes
-    } else if (successCount > 0 && failCount > 0) {
-      showNotification(`Booked ${successCount} appointment(s), but ${failCount} failed`, false);
+    if (emailResult.success) {
+      successMessage += ` A confirmation email has been sent to ${email}.`;
+    } else if (emailResult.reason === 'no_email') {
+      successMessage += ` (No email provided for confirmation)`;
+    } else if (emailResult.reason === 'not_configured') {
+      successMessage += ` (Email notifications not yet configured)`;
     } else {
-      showNotification('Failed to book appointments. Please try again.', false);
+      successMessage += ` (Note: Confirmation email failed to send, but your booking is confirmed)`;
     }
+
+    showNotification(successMessage, true);
+
+    // Log booking details to console for reference
+    console.log('Booking saved:', bookingDetails);
+
+    bookingForm.reset();
 
   } catch (err) {
     console.error('Booking error:', err);
