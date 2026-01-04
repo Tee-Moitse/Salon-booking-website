@@ -1,7 +1,7 @@
 
 # 💅 Luxe Beauty Haven – Salon Booking Website
 
-Luxe Beauty Haven is a responsive website built for a fictional beauty salon that offers services such as hair, lashes, and nails. The purpose of this website is to allow customers to **view available services**, **read reviews**, and **book appointments** online — including paying a **R50 deposit** to confirm their booking.
+Luxe Beauty Haven is a responsive website built for a fictional beauty salon that offers services such as hair, lashes, and nails. The purpose of this website is to allow customers to **view available services**, **read reviews**, and **book appointments** online, including paying a **R50 deposit** to confirm their booking.
 
 ---
 
