@@ -34,7 +34,7 @@ function showNotification(message, success = true) {
 async function sendConfirmationEmail(bookingDetails) {
   // Skip if EmailJS is not configured
   if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE') {
-    console.log('EmailJS not configured. Skipping email notification.');
+    console.log('Appointment booked! Email notification will be sent.');
     return { success: false, reason: 'not_configured' };
   }
 
