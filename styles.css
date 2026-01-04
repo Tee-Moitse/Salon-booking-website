@@ -1,13 +1,19 @@
 /* Will use the route as an update */
 
 /* :root {
-  --main-color: #033f05;
+  --main-color: #F2C6C2;
+  --background: #FFF8F2;
+  --luxury-accent:#C89B7B;
+  --primary-color: #C9B8E6;
+  --secondary-color: #4B2C5E;
+  --text-color: #2F2F2F; 
+  --muted-ui: #D8CFC4;
 } */
 
 
 
 body {
-    background-color:#eedab9
+    background-color:#ffcbeb;
 }
 
 /* INTRO AND HEADING */
@@ -23,8 +29,9 @@ body {
 .store_name {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 80px;
-    color: #033f05;
+    color: #c93ba5;
     margin-bottom: 0%;
+    text-shadow: 4px 4px 5px #e68bc5f2;
 }
 
 
@@ -125,7 +132,7 @@ body {
     height: 320px;
     border-radius: 30px;
     margin-bottom: 7px;
-    background: #dbc39c;
+    background: #ff86db;
     padding-bottom: 70px;
 }
 
