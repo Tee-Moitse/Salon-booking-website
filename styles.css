@@ -13,7 +13,7 @@
 
 
 body {
-    background-color:#ffcbeb;
+    background-color:#eedab9;
 }
 
 /* INTRO AND HEADING */
@@ -27,11 +27,11 @@ body {
 
 
 .store_name {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 80px;
-    color: #c93ba5;
-    margin-bottom: 0%;
-    text-shadow: 4px 4px 5px #e68bc5f2;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 80px;
+  color: #033f05;
+  margin-bottom: 0%;
+  text-shadow: 1px 1px 3px #033f05;
 }
 
 
@@ -39,7 +39,7 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
     /* color: #55a709; */
-    color: #B19886;
+    color: #c9a262;
 
 }
 
@@ -71,24 +71,25 @@ body {
 /* SERVICES */
 
 .service-intro h1{
-    text-align: center;
-    color: #033f05;
+  text-align: center;
+  color: #033f05;
+  text-shadow: 1px 1px 2px #033f05
 }
 
 .service-intro p{
-    font-weight: 300;
-    font-size: large;
-    text-align: center;
-    color: #503927;
-    margin-left: 10%;
-    margin-right: 10%;
+  font-weight: 300;
+  font-size: large;
+  text-align: center;
+  color: #503927;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 
 .services {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .services-1 {
@@ -132,8 +133,9 @@ body {
     height: 320px;
     border-radius: 30px;
     margin-bottom: 7px;
-    background: #ff86db;
+    background: #dbc39c;
     padding-bottom: 70px;
+    box-shadow: 2px 2px 5px #dbc39c;
 }
 
 
@@ -162,7 +164,7 @@ body {
     height: 400px;
     margin-top: 30px;
     border-radius: 30px;
-    background: #dbc39c;
+    background: #dbc39c
 
 }
 
@@ -204,7 +206,9 @@ body {
   
 h1 {
     text-align: center;
-    color: #333;  
+    color: #033f05;
+    text-shadow: 1px 1px 2px #033f05;
+
 }  
 
 p {
@@ -250,7 +254,7 @@ select {
 }  
   
 .submit-btn:hover {
-    background-color: #98804c;  
+    background-color: #8a764a;  
 }  
 
 
@@ -411,6 +415,8 @@ select {
 .review-heading h1 {
   text-align: center;
   color: #033f05;
+  text-shadow: 1px 1px 2px #033f05;
+  
 }
 
 .review-heading p {

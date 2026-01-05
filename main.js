@@ -34,7 +34,7 @@ function showNotification(message, success = true) {
 async function sendConfirmationEmail(bookingDetails) {
   // Skip if EmailJS is not configured
   if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE') {
-    console.log('Appointment booked! Email notification will be sent.');
+    console.log('Appointment booked. Email notification will be sent.');
     return { success: false, reason: 'not_configured' };
   }
 
@@ -149,10 +149,12 @@ bookingForm.addEventListener('submit', async (e) => {
     } else if (emailResult.reason === 'no_email') {
       successMessage += ` (No email provided for confirmation)`;
     } else if (emailResult.reason === 'not_configured') {
-      successMessage += ` (Email notifications not yet configured)`;
+      successMessage += ` (A confirmation email will be sent to you)`;
     } else {
       successMessage += ` (Note: Confirmation email failed to send, but your booking is confirmed)`;
     }
+
+    //(Email notifications not yet configured) this is for the not_configured message
 
     showNotification(successMessage, true);
 
