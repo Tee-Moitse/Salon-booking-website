@@ -7,7 +7,7 @@ Luxe Beauty Haven is a responsive website built for a fictional beauty salon tha
 
 ## 📌 Project Purpose
 
-This project was created to simulate a real-world booking system for a salon. It is designed as part of a portfolio to demonstrate frontend development skills and, in the future, will include backend functionality with database integration using SQL.
+There are many small salon business (or beauty businesses especially small ones in genenral) that manually book their appointments using social media platforms such as WhatsApp, SMSs and through phone calls, and they have to write it down. This project solves this problem of customers of small businesses having to use all these different platforms to book their appointments for their preferred services at that salon.
 
 ---
 
