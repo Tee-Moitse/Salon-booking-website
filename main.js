@@ -25,7 +25,7 @@ function showNotification(message, success = true) {
 
   setTimeout(() => {
     notification.style.display = 'none';
-  }, 4000);
+  }, 4000);c
 }
 
 // ============================================
