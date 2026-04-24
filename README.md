@@ -21,8 +21,7 @@ There are many small salon business (or beauty businesses especially small ones 
   - Customer details (name, surname, email)
   - Service selection (can select more than one)
   - Time slot selection
-  - Deposit payment option (placeholder for now)
-- Footer with basic site info
+  - Deposit payment optio (payment page still under construction).
 
 ---
 
@@ -32,7 +31,6 @@ There are many small salon business (or beauty businesses especially small ones 
 - **CSS3**
 - **JavaScript (vanilla)** *(optional/for future interactivity)*
 - **Font Awesome** (for icons)
-- **Google Fonts** (for custom typography)
 
 ---
 
@@ -54,7 +52,7 @@ project-root/
 ````
 ## 🔮 Future Plans
 
-* Integrate backend with **Node.js/Express** or **Django**
+* Integrate backend with **Django**
 * Use **SQL** for storing bookings and customer data
 * Enable actual **payment processing** (e.g. via Paystack or Stripe)
 * Add user authentication for admin/salon access
