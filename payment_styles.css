@@ -1,8 +1,26 @@
+:root {
+  --main-color: #F2C6C2;
+  --background: #FFF8F2;
+  --luxury-accent:#C89B7B;
+  --primary-color: #C9B8E6;
+  --secondary-color: #4B2C5E;
+  --text-color: #2F2F2F; 
+  --muted-ui: #D8CFC4;
+}
+
+
+
+
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 300;
-    color: rgb(6, 40, 6);
-    background-color: #d2d2b0;
+    color: var(--text-color);
+    background-color: var(--background);
     text-align: center;
 }
+
+
+
+
+
 
