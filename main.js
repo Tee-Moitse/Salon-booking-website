@@ -168,3 +168,10 @@ bookingForm.addEventListener('submit', async (e) => {
     showNotification('An error occurred. Please try again.', false);
   }
 });
+
+
+
+
+
+//Payment page
+
