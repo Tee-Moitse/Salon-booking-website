@@ -21,7 +21,6 @@ body {
 
 
 
-/* From Uiverse.io by zanina-yassine */ 
 .modal {
   width: fit-content;
   height: fit-content;
@@ -53,7 +52,10 @@ body {
   padding: 0;
   border: 0;
   outline: none;
+  cursor: pointer;
 }
+
+
 
 .payment--options button svg {
   height: 18px;
