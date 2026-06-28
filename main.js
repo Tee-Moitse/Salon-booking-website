@@ -1,8 +1,6 @@
-// ============================================
 // EMAILJS CONFIGURATION
-// ============================================
 // IMPORTANT: Replace these with your actual EmailJS credentials
-// Get them from: https://dashboard.emailjs.com/
+
 const EMAILJS_CONFIG = {
   PUBLIC_KEY: 'YOUR_PUBLIC_KEY_HERE',      // Replace with your EmailJS public key
   SERVICE_ID: 'YOUR_SERVICE_ID_HERE',      // Replace with your EmailJS service ID
@@ -28,9 +26,9 @@ function showNotification(message, success = true) {
   }, 4000);c
 }
 
-// ============================================
+
 // EMAIL CONFIRMATION FUNCTION
-// ============================================
+
 async function sendConfirmationEmail(bookingDetails) {
   // Skip if EmailJS is not configured
   if (EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY_HERE') {
