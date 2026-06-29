@@ -6,6 +6,7 @@
   --secondary-color: #4B2C5E;
   --text-color: #2F2F2F; 
   --muted-ui: #D8CFC4;
+  --disclaimer: #eb2b2b;
 }
 
 
@@ -167,6 +168,12 @@ body {
 .input_field[type=number] {
   -moz-appearance: textfield;
 }
+
+.disclaimer{
+  color: var(--disclaimer);
+  
+}
+
 
 
 
