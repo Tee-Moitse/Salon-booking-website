@@ -21,7 +21,6 @@ body {
 }
 
 
-
 .modal {
   width: fit-content;
   height: fit-content;
@@ -45,6 +44,9 @@ body {
   gap: 20px;
   padding: 10px;
 }
+/* .payment--options:hover{
+  color: var(--main-color) */
+/* } */
 
 .payment--options button {
   height: 55px;
@@ -152,6 +154,7 @@ body {
   background: linear-gradient(180deg, #363636 0%, #1B1B1B 50%, #000000 100%);
   box-shadow: 0px 0px 0px 0px #FFFFFF, 0px 0px 0px 0px #000000;
   transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  cursor: pointer;
 }
 
 .purchase--btn:hover {
