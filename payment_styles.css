@@ -171,6 +171,7 @@ body {
 
 .disclaimer{
   color: var(--disclaimer);
+  padding-top: 15px;
   
 }
 
