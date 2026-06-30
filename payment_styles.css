@@ -20,6 +20,13 @@ body {
     text-align: center;
 }
 
+.page-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
 
 .modal {
   width: fit-content;
