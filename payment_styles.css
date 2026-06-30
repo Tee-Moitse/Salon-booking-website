@@ -179,11 +179,18 @@ body {
   -moz-appearance: textfield;
 }
 
-.disclaimer{
+.text-container{
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+/* .disclaimer{
   color: var(--disclaimer);
   padding-top: 15px;
   
-}
+} */
 
 
 
