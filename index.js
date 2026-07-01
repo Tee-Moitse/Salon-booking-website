@@ -11,51 +11,70 @@ document.getElementById("pay-btn").onclick = function(){
 
 //FORM BUTTON INTERACTIVITY
 
-// we will use EmailJS function from main.js (global access)
+console.log("index.js is running");
+
 const form = document.getElementById("booking-form");
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+if (!form) {
+    console.error("Form not found! Check ID = booking-form");
+}
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
+form.addEventListener("submit", (e) => {
+    e.preventDefault(); // 🔥 THIS STOPS PAGE RESET
 
-    try {
-        // 1. SAVE TO FIREBASE
-        const docRef = await addDoc(collection(db, "appointments"), {
-            name,
-            email,
-            phone,
-            date,
-            time,
-            created_at: new Date().toISOString()
-        });
+    console.log("Form submitted successfully");
 
-        console.log("Saved to Firebase:", docRef.id);
-
-        // 2. SEND EMAIL (from main.js)
-        if (window.sendConfirmationEmail) {
-            await window.sendConfirmationEmail({
-                name,
-                email,
-                phone,
-                appointment_time: new Date(`${date}T${time}:00`).toISOString(),
-                bookingId: docRef.id
-            });
-        }
-
-        alert("Booking successful!");
-
-        form.reset();
-
-    } catch (error) {
-        console.error("Booking failed:", error);
-        alert("Something went wrong");
-    }
+    alert("Button works — no refresh 🚀");
 });
+
+
+
+
+// we will use EmailJS function from main.js (global access)
+// const form = document.getElementById("booking-form");
+
+// form.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+
+//     const name = document.getElementById("name").value;
+//     const email = document.getElementById("email").value;
+//     const phone = document.getElementById("phone").value;
+//     const date = document.getElementById("date").value;
+//     const time = document.getElementById("time").value;
+
+//     try {
+//         // 1. SAVE TO FIREBASE
+//         const docRef = await addDoc(collection(db, "appointments"), {
+//             name,
+//             email,
+//             phone,
+//             date,
+//             time,
+//             created_at: new Date().toISOString()
+//         });
+
+//         console.log("Saved to Firebase:", docRef.id);
+
+//         // 2. SEND EMAIL (from main.js)
+//         if (window.sendConfirmationEmail) {
+//             await window.sendConfirmationEmail({
+//                 name,
+//                 email,
+//                 phone,
+//                 appointment_time: new Date(`${date}T${time}:00`).toISOString(),
+//                 bookingId: docRef.id
+//             });
+//         }
+
+//         alert("Booking successful!");
+
+//         form.reset();
+
+//     } catch (error) {
+//         console.error("Booking failed:", error);
+//         alert("Something went wrong");
+//     }
+// });
 
 
 
