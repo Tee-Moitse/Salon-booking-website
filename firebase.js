@@ -15,10 +15,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-console.log("Firebase connected 🚀");
+console.log("Firebase connected");
 
 // export database so other files can use it
 export { db };
