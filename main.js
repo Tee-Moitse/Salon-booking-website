@@ -169,7 +169,21 @@ bookingForm.addEventListener('submit', async (e) => {
 
 
 
+//FIREBASE STUFF
 
+const firebaseConfig = {
+    apiKey: "AIzaSyB7qlwyxdRAllRtqDxlZHGqFV8KyxetS4A",
+    authDomain: "salon-booking-website-5ea4a.firebaseapp.com",
+    projectId: "salon-booking-website-5ea4a",
+    storageBucket: "salon-booking-website-5ea4a.firebasestorage.app",
+    messagingSenderId: "380215886386",
+    appId: "1:380215886386:web:70238b6179f3e93ba0322b",
+    measurementId: "G-SKHMCB9E5K"
+  };
 
-//Payment page
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+console.log("Firebase connected");
 
