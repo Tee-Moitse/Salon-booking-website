@@ -90,80 +90,80 @@ async function sendConfirmationEmail(bookingDetails) {
 }
 
 // Handle form submission
-bookingForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+// bookingForm.addEventListener('submit', async (e) => {
+//   e.preventDefault();
 
-  // Collect form values
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const date = document.getElementById('date').value;
-  const time = document.getElementById('time').value;
+//   // Collect form values
+//   const name = document.getElementById('name').value.trim();
+//   const email = document.getElementById('email').value.trim();
+//   const phone = document.getElementById('phone').value.trim();
+//   const date = document.getElementById('date').value;
+//   const time = document.getElementById('time').value;
 
-  // Get selected services
-  const selectedServices = Array.from(document.querySelectorAll('input[name="services"]:checked'))
-    .map(cb => cb.value);
+//   // Get selected services
+//   const selectedServices = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+//     .map(cb => cb.value);
 
-  // Validation
-  if (selectedServices.length === 0) {
-    showNotification('Please select at least one service', false);
-    return;
-  }
+//   // Validation
+//   if (selectedServices.length === 0) {
+//     showNotification('Please select at least one service', false);
+//     return;
+//   }
 
-  if (!name || !phone || !date || !time) {
-    showNotification('Please fill in all required fields', false);
-    return;
-  }
+//   if (!name || !phone || !date || !time) {
+//     showNotification('Please fill in all required fields', false);
+//     return;
+//   }
 
-  // Combine date + time into ISO timestamp
-  const appointment_time = new Date(`${date}T${time}:00`).toISOString();
+//   // Combine date + time into ISO timestamp
+//   const appointment_time = new Date(`${date}T${time}:00`).toISOString();
 
-  try {
-    // Create booking details for email and local storage
-    const bookingDetails = {
-      name,
-      email,
-      phone,
-      services: selectedServices,
-      appointment_time,
-      bookingId: `LBH-${Date.now()}`,  // Simple booking reference
-      status: 'pending',
-      created_at: new Date().toISOString()
-    };
+//   try {
+//     // Create booking details for email and local storage
+//     const bookingDetails = {
+//       name,
+//       email,
+//       phone,
+//       services: selectedServices,
+//       appointment_time,
+//       bookingId: `LBH-${Date.now()}`,  // Simple booking reference
+//       status: 'pending',
+//       created_at: new Date().toISOString()
+//     };
 
-    // Save booking to localStorage
-    const existingBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-    existingBookings.push(bookingDetails);
-    localStorage.setItem('bookings', JSON.stringify(existingBookings));
+//     // Save booking to localStorage
+//     const existingBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+//     existingBookings.push(bookingDetails);
+//     localStorage.setItem('bookings', JSON.stringify(existingBookings));
 
-    // Send confirmation email
-    const emailResult = await sendConfirmationEmail(bookingDetails);
+//     // Send confirmation email
+//     const emailResult = await sendConfirmationEmail(bookingDetails);
 
-    // Show success message with email status
-    let successMessage = `✅ Successfully booked ${selectedServices.length} service(s)!`;
+//     // Show success message with email status
+//     let successMessage = `✅ Successfully booked ${selectedServices.length} service(s)!`;
 
-    if (emailResult.success) {
-      successMessage += ` A confirmation email has been sent to ${email}.`;
-    } else if (emailResult.reason === 'no_email') {
-      successMessage += ` (No email provided for confirmation)`;
-    } else if (emailResult.reason === 'not_configured') {
-      successMessage += ` (A confirmation email will be sent to you)`;
-    } else {
-      successMessage += ` (Note: Confirmation email failed to send, but your booking is confirmed)`;
-    }
+//     if (emailResult.success) {
+//       successMessage += ` A confirmation email has been sent to ${email}.`;
+//     } else if (emailResult.reason === 'no_email') {
+//       successMessage += ` (No email provided for confirmation)`;
+//     } else if (emailResult.reason === 'not_configured') {
+//       successMessage += ` (A confirmation email will be sent to you)`;
+//     } else {
+//       successMessage += ` (Note: Confirmation email failed to send, but your booking is confirmed)`;
+//     }
 
-    //(Email notifications not yet configured) this is for the not_configured message
+//     //(Email notifications not yet configured) this is for the not_configured message
 
-    showNotification(successMessage, true);
+//     showNotification(successMessage, true);
 
-    // Log booking details to console for reference
-    console.log('Booking saved:', bookingDetails);
+//     // Log booking details to console for reference
+//     console.log('Booking saved:', bookingDetails);
 
-    bookingForm.reset();
+//     bookingForm.reset();
 
-  } catch (err) {
-    console.error('Booking error:', err);
-    showNotification('An error occurred. Please try again.', false);
-  }
-});
+//   } catch (err) {
+//     console.error('Booking error:', err);
+//     showNotification('An error occurred. Please try again.', false);
+//   }
+// });
 
