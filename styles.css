@@ -261,7 +261,7 @@ select {
 
 /* Pay button */
 
-.pay-btn {
+#pay-btn {
   position: relative;
   padding: 12px 24px;
   margin-bottom: 20px;
@@ -277,19 +277,19 @@ select {
   transition: all 0.3s ease;
 }
 
-.pay-btn:hover {
+#pay-btn:hover {
   transform: translateY(-2px);
   background: #331d0e;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-.icon-container {
+#icon-container {
   position: relative;
   width: 24px;
   height: 24px;
 }
 
-.pay-btn .icon {
+#pay-btn .icon {
   position: absolute;
   top: 0;
   left: 0;
@@ -300,55 +300,55 @@ select {
   visibility: hidden;
 }
 
-.default-icon {
+#default-icon {
   opacity: 1;
   visibility: visible;
 }
 
 /* Hover animations */
-.pay-btn:hover .icon {
+#pay-btn:hover .icon {
   animation: none;
 }
 
-.pay-btn:hover .wallet-icon {
+#pay-btn:hover .wallet-icon {
   opacity: 0;
   visibility: hidden;
 }
 
-.pay-btn:hover .card-icon {
+#pay-btn:hover .card-icon {
   animation: iconRotate 2.5s infinite;
   animation-delay: 0s;
 }
 
-.pay-btn:hover .payment-icon {
+#pay-btn:hover .payment-icon {
   animation: iconRotate 2.5s infinite;
   animation-delay: 0.5s;
 }
 
-.pay-btn:hover .dollar-icon {
+#pay-btn:hover .dollar-icon {
   animation: iconRotate 2.5s infinite;
   animation-delay: 1s;
 }
 
-.pay-btn:hover .check-icon {
+#pay-btn:hover .check-icon {
   animation: iconRotate 2.5s infinite;
   animation-delay: 1.5s;
 }
 
 /* Active state - show only checkmark */
-.pay-btn:active .icon {
+#pay-btn:active .icon {
   animation: none;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
 }
 
-.pay-btn:active .check-icon {
+#pay-btn:active .check-icon {
   animation: checkmarkAppear 0.6s ease forwards;
   visibility: visible;
 }
 
-.btn-text {
+#btn-text {
   font-weight: 600;
   font-family:
     system-ui,
