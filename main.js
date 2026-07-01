@@ -23,7 +23,7 @@ function showNotification(message, success = true) {
 
   setTimeout(() => {
     notification.style.display = 'none';
-  }, 4000);c
+  }, 4000);
 }
 
 
@@ -88,6 +88,8 @@ async function sendConfirmationEmail(bookingDetails) {
     return { success: false, error };
   }
 }
+
+window.sendConfirmationEmail = sendConfirmationEmail;
 
 // Handle form submission
 // bookingForm.addEventListener('submit', async (e) => {
