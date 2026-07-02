@@ -20,11 +20,43 @@ if (!form) {
 }
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault(); // 🔥 THIS STOPS PAGE RESET
+    e.preventDefault();
 
-    console.log("Form submitted successfully");
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
 
-    alert("Button works — no refresh 🚀");
+    const services = [];
+
+    document.querySelectorAll('input[name="services"]:checked').forEach(service => {
+        services.push(service.value);
+    });
+
+    try {
+        // For it to save to firebase
+            const docRef = await addDoc(collection(db, "appointments"), {
+                name: name,
+                email: email,
+                phone: phone,
+                date: date,
+                time: time,
+                services: services,
+                depositPaid: false,
+                createdAt: new Date().toISOString()
+            });
+
+            console.log("Booking saved with ID:", docRef.id);
+
+            alert("Booking successful!");
+
+            form.reset();
+
+    } catch (error) {
+        console.error("Error saving booking:", error);
+        alert("Something went wrong. Please try again.");
+    }
 });
 
 
