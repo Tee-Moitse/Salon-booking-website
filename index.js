@@ -19,8 +19,10 @@ if (!form) {
     console.error("Form not found! Check ID = booking-form");
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    console.log("Form submitted successfully!");
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -37,13 +39,14 @@ form.addEventListener("submit", (e) => {
     try {
         // For it to save to firebase
             const docRef = await addDoc(collection(db, "appointments"), {
-                name: name,
-                email: email,
-                phone: phone,
-                date: date,
-                time: time,
-                services: services,
+                name,
+                email,
+                phone,
+                date,
+                time,
+                services,
                 depositPaid: false,
+                status: "pending",
                 createdAt: new Date().toISOString()
             });
 
