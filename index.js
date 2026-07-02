@@ -63,56 +63,6 @@ form.addEventListener("submit", async (e) => {
 });
 
 
-
-
-// we will use EmailJS function from main.js (global access)
-// const form = document.getElementById("booking-form");
-
-// form.addEventListener("submit", async (e) => {
-//     e.preventDefault();
-
-//     const name = document.getElementById("name").value;
-//     const email = document.getElementById("email").value;
-//     const phone = document.getElementById("phone").value;
-//     const date = document.getElementById("date").value;
-//     const time = document.getElementById("time").value;
-
-//     try {
-//         // 1. SAVE TO FIREBASE
-//         const docRef = await addDoc(collection(db, "appointments"), {
-//             name,
-//             email,
-//             phone,
-//             date,
-//             time,
-//             created_at: new Date().toISOString()
-//         });
-
-//         console.log("Saved to Firebase:", docRef.id);
-
-//         // 2. SEND EMAIL (from main.js)
-//         if (window.sendConfirmationEmail) {
-//             await window.sendConfirmationEmail({
-//                 name,
-//                 email,
-//                 phone,
-//                 appointment_time: new Date(`${date}T${time}:00`).toISOString(),
-//                 bookingId: docRef.id
-//             });
-//         }
-
-//         alert("Booking successful!");
-
-//         form.reset();
-
-//     } catch (error) {
-//         console.error("Booking failed:", error);
-//         alert("Something went wrong");
-//     }
-// });
-
-
-
 //Firebase testing
 
 async function saveBooking() {
