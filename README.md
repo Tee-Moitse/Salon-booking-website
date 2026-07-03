@@ -31,7 +31,7 @@ There are many salon businesses (or beauty businesses especially small ones in g
 - **CSS3**
 - **JavaScript**
 - **Font Awesome**
-- **Firebase for backend integration** 
+- **Firebase** 
 
 ---
 
@@ -60,9 +60,6 @@ project-root/
 ````
 ## 🔮 Future Plans
 
-* Integrate backend with **Firebase**
-* Use **SQL** for storing bookings and customer data
-* Add a payment page and enable actual **payment processing** (e.g. via Paystack or Stripe)
 * Add user authentication for admin/salon access
 * Fully mobile-responsive optimization
 ---
