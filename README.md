@@ -7,7 +7,7 @@ Luxe Beauty Haven is a responsive website built for a fictional beauty salon tha
 
 ## 📌 Project Purpose
 
-There are many small salon business (or beauty businesses especially small ones in genenral) that manually book their appointments using social media platforms such as WhatsApp, SMSs and through phone calls, and they have to write it down. This project solves this problem of customers of small businesses having to use all these different platforms to book their appointments for their preferred services at that salon.
+There are many salon businesses (or beauty businesses especially small ones in genenral) that manually book their appointments using social media platforms such as WhatsApp, SMSs and through phone calls, and they have to write it down. This project solves this problem of customers of small businesses having to use all these different platforms to book their appointments for their preferred services at that salon.
 
 ---
 
@@ -18,10 +18,10 @@ There are many small salon business (or beauty businesses especially small ones 
 - Customer reviews with interactive star ratings
 - Social media buttons
 - Appointment booking form with:
-  - Customer details (name, surname, email)
+  - Customer details (name, surname, email, phone number)
   - Service selection (can select more than one)
   - Time slot selection
-  - Deposit payment option (payment page still under construction).
+  - Deposit payment option (page where the customer can pay for their deposit).
 
 ---
 
@@ -29,8 +29,9 @@ There are many small salon business (or beauty businesses especially small ones 
 
 - **HTML5**
 - **CSS3**
-- **JavaScript** *(optional/for future interactivity)*
-- **Font Awesome** (for icons)
+- **JavaScript**
+- **Font Awesome**
+- **Firebase for backend integration** 
 
 ---
 
@@ -41,10 +42,17 @@ There are many small salon business (or beauty businesses especially small ones 
 project-root/
 │
 ├── images/                 # All service and UI images
-├── styles/
-│   └── extrastyles.css     # Main stylesheet
+├── email-setup-guide.md
+└──firebase.js              # initalising Firebase
 ├── index.html              # Home page (landing + services + booking)
-└── README.md               # Project documentation
+└── index.js                # UI functionality and firebase testing and form functionality
+├── main.js                 # For EmailJS to send confirmation emails
+└── payment.styles          # Styling for the payment page
+└── payment.html            # Payment page where the card details can be filled  
+└── project_scope.txt       # Planning of project
+└── QUCIKSTART.md 
+└── README.md               # Overview of project
+└── styles.css              # Styling for the home page      
 
 
 ---
