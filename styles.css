@@ -16,6 +16,45 @@ body {
     background-color:#eedab9;
 }
 
+
+/* NAVBAR AND HEADER */
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: flex-end; */
+  max-width: 1400px;
+  margin: auto;
+  padding: 25px 5%;
+  /* font-size: large; */
+
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  text-decoration: none;
+  font-size: larger;
+  
+}
+
+.nav-links a {
+  font-size: larger;
+  color: #333;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--cream);
+}
+
+
+
 /* INTRO AND HEADING */
 
 .heading {
